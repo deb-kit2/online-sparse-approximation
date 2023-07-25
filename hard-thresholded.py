@@ -34,7 +34,8 @@ def ft_hard_thresholded_pl(eta, mu, K, phi, T, x_best) :
         for s in range(tau) :
             # abs?
             L = np.argsort(z + mu * phi.T @ (b - phi @ z))[::-1][:K]
-            z = np.linalg.lstsq(phi[:, L], b, rcond = None)[0]
+            z_new = np.linalg.lstsq(phi[:, L], b, rcond = None)[0]
+            z[L] = z_new
 
         x = z
         # to-do : reveal y
