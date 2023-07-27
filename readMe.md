@@ -1,13 +1,13 @@
 ## Greedy Algorithms for Online Sparse Approximation
 
 ### To-Do :
- - [ ] If doesn't converge, try with tau = 100 fixed.
  - [ ] Be insightful about the variances of all random things.
- - [ ] plots : reward vs time
+ - [x] If doesn't converge, try with tau = 100 fixed.
+ - [x] plots : reward vs time
  - [x] plots : regret vs time
  - [x] plots : average regret vs time
- - [ ] plots : accumulated reward vs time
- - [ ] make notebook.
+ - [x] plots : accumulated reward vs time
+ - [x] make notebook.
  - [x] Other algorithms.
  - [x] Fix `x_best` and continue programming.
 
