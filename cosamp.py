@@ -1,10 +1,9 @@
 import copy
 import numpy as np
-from tqdm import tqdm
 
-def ft_hard_thresholded_pl(eta, mu, phi, K, T) :
+def ft_cosamp_pl(eta, mu, phi, K, T) :
     """
-    Follow the Hard-Thresholded Perturbed Leader algorithm.
+    Follow the CoSaMPed  Perturbed Leader algorithm.
 
     Inputs :
     eta : multiplicative factor for perturbation
@@ -28,7 +27,7 @@ def ft_hard_thresholded_pl(eta, mu, phi, K, T) :
     Y = np.zeros(M)
     gamma = np.random.normal(loc = 0.0, scale = 1.0, size = M) # constant
     
-    for t in tqdm(range(1, T + 1)) :
+    for t in range(1, T + 1) :
         z = np.zeros(N)
         b = (Y + eta * gamma) / t
         
@@ -36,10 +35,15 @@ def ft_hard_thresholded_pl(eta, mu, phi, K, T) :
         tau = int(np.log(t) + 2)
         for s in range(tau) :
             # abs? I think needed.
-            L = np.argsort(np.abs(z + mu * phi.T @ (b - phi @ z)))[::-1][:K]
-            z_new = np.linalg.lstsq(phi[:, L], b, rcond = None)[0]
+            sup1 = np.nonzero(z)
+            sup2 = np.argsort(np.abs(phi.T @ (b - phi @ z)))[::-1][:2*K]
+
+            L = np.union1d(sup1, sup2)
+            u = np.linalg.lstsq(phi[:, L], b, rcond = None)[0]
+            
+            topK = np.argsort(np.abs(u))[::-1][:K]
             z = np.zeros(N)
-            z[L] = z_new
+            z[topK] = u[topK]
 
         x = z
 
