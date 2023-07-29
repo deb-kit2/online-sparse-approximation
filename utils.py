@@ -21,12 +21,10 @@ def calculate_regret(history : dict) :
         ) :
         online_loss += 0.5 * np.linalg.norm(y - phi @ x) ** 2 
         
-        y_ = np.zeros(M)
         x_best_ += x_b
         offline_loss = 0
         for j in range(i + 1) :
-            y_ += running_Y[j]
-            offline_loss += 0.5 * np.linalg.norm(y_ - phi @ x_best_)
+            offline_loss += 0.5 * np.linalg.norm(running_Y[j] - phi @ (x_best_ / (i+1)))
 
         regrets.append(online_loss - offline_loss)
         average_regrets.append((online_loss - offline_loss) / (i+1))
