@@ -1,13 +1,12 @@
 import copy
 import numpy as np
 
-def ft_cosamp_pl(eta, mu, phi, K, T) :
+def ft_cosamp_pl(eta, phi, K, T) :
     """
     Follow the CoSaMPed  Perturbed Leader algorithm.
 
     Inputs :
     eta : multiplicative factor for perturbation
-    mu : some constant > 0, preferably != 1
     phi : shape(M, N)
     K : sparsity constant, number of non-zero elements
     T : timesteps to run the simulation for
@@ -52,7 +51,7 @@ def ft_cosamp_pl(eta, mu, phi, K, T) :
         x_best[support_x] = np.random.normal(loc = 0.0, scale = 1.0, size = K)
         noise = np.random.normal(scale = 1/128, size = M)
 
-        y = phi @ x_best + noise
+        y = (phi @ x_best) + noise
 
         # get reward
         reward = np.dot(y, phi @ x) - 0.5 * np.linalg.norm(phi @ x) ** 2

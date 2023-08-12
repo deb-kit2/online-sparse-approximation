@@ -1,6 +1,9 @@
 import numpy as np
 from tqdm import tqdm
 
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 
 def calculate_regret(history : dict) :
     
@@ -33,3 +36,18 @@ def calculate_regret(history : dict) :
     history["average_regrets"] = average_regrets
 
     return history
+
+
+def save(M, N, K, T, eta, mu, df, scale, alg = "htp") :
+    
+    fig, ax = plt.subplots(2, 2, figsize = (8, 5), dpi = 200)
+
+    a = sns.lineplot(df[["Regret"]][:200], ax = ax[0][0])
+    b = sns.lineplot(df[["Reward"]][:200], ax = ax[0][1])
+    c = sns.lineplot(df[["Average Regret"]][:200], ax = ax[1][0])
+    f = sns.lineplot(df[["Average Reward"]][:200], ax = ax[1][1])
+
+    plt.savefig(f"logs/{alg}_M{M}_N{N}_K{K}_T{T}_eta{eta}_mu{mu}_scale{scale}.png")
+
+    plt.close()
+    

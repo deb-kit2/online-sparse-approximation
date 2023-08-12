@@ -1,5 +1,15 @@
 ## Greedy Algorithms for Online Sparse Approximation
 
+### Inplemented for :
+ - [x] HTP
+ - [x] CoSaMP
+ - [ ] Subspace Pursuit
+ - [ ] Iterative hard Thresholding
+
+### Run for :
+ - [x] HTP
+ - [ ] CoSaMP
+ 
 ### To-Do :
  - [ ] Be insightful about the variances of all random things.
  - [x] If doesn't converge, try with tau = 100 fixed.
