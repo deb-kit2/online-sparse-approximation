@@ -3,9 +3,9 @@
 
 ### Run for :
  - [x] HTP
- - [ ] CoSaMP
- - [ ] Subspace Pursuit
- - [ ] Iterative Hard Thresholding
+ - [x] CoSaMP
+ - [x] Iterative Hard Thresholding
+ - [x] Subspace Pursuit : noisy
 
 ### Inplemented for :
  - [x] HTP
