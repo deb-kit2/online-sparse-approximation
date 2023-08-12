@@ -75,10 +75,13 @@ def ft_subapce_pursuit_pl(eta, phi, K, T) :
     for i in range(1, len(accumulated_rewards)) :
         accumulated_rewards[i] += accumulated_rewards[i-1]
 
+    for i in range(len(accumulated_rewards)) :
+        accumulated_rewards[i] /= i+1
+
     return {
         "phi" : phi,
         "rewards" : rewards,
-        "accumulated_rewards" : accumulated_rewards,
+        "average_rewards" : accumulated_rewards,
         "running_X" : running_X,
         "running_X_best" : running_X_best,
         "running_Y" : running_Y

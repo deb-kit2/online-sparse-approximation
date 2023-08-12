@@ -69,6 +69,9 @@ def ft_iter_hard_thresholded_pl(eta, mu, phi, K, T) :
     for i in range(len(accumulated_rewards)) :
         accumulated_rewards[i] /= i+1
 
+    for i in range(len(accumulated_rewards)) :
+        accumulated_rewards[i] /= i+1
+
     return {
         "phi" : phi,
         "rewards" : rewards,
