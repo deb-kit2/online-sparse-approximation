@@ -31,7 +31,7 @@ def ft_cosamp_pl(eta, phi, K, T) :
         b = (Y + eta * gamma) / t
         
         # get x from oracle
-        tau = int(np.log(t) + 2)
+        tau = int(np.log(t) + 10)
         for s in range(tau) :
             # abs? I think needed.
             sup1 = np.nonzero(z)
