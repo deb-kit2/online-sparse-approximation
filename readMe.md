@@ -3,8 +3,8 @@
 ### Inplemented for :
  - [x] HTP
  - [x] CoSaMP
- - [ ] Subspace Pursuit
- - [ ] Iterative hard Thresholding
+ - [x] Subspace Pursuit
+ - [ ] Iterative Hard Thresholding
 
 ### Run for :
  - [x] HTP

@@ -1,5 +1,6 @@
 import copy
 import numpy as np
+from tqdm import tqdm
 
 
 def residual(y, A) :
@@ -10,7 +11,7 @@ def residual(y, A) :
 
 def ft_subapce_pursuit_pl(eta, phi, K, T) :
     """
-    Follow the CoSaMPed  Perturbed Leader algorithm.
+    Follow the Subspace Pursuit Perturbed Leader algorithm.
 
     Inputs :
     eta : multiplicative factor for perturbation
@@ -33,7 +34,7 @@ def ft_subapce_pursuit_pl(eta, phi, K, T) :
     Y = np.zeros(M)
     gamma = np.random.normal(loc = 0.0, scale = 1.0, size = M) # constant
     
-    for t in range(1, T + 1) :
+    for t in tqdm(range(1, T + 1)) :
         b = (Y + eta * gamma) / t
 
         tl = np.argsort(np.abs(phi.T @ b))[::-1][:K]
