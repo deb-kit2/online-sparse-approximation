@@ -46,7 +46,7 @@ def htp(phi, y, K, mu = 0.3, max_iter = 100) :
     return x
 
 
-def ihtp(phi, y, K, max_iter = 100) :
+def ihtp(phi, y, K, mu = 0.3, max_iter = 100) :
     """
     Performs Iterative Hard-Thresholded Perturbing
 

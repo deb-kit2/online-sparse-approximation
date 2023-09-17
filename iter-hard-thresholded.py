@@ -36,8 +36,8 @@ def ft_iter_hard_thresholded_pl(eta, mu, phi, K, T) :
         tau = int(np.log(t)) + 10
         for s in range(tau) :
             # abs? I think needed.
-            r = z + phi.T @ (b - phi @ z)
-            L = np.argsort(np.abs(r))[::-1][K]
+            r = z + mu * phi.T @ (b - phi @ z)
+            L = np.argsort(np.abs(r))[::-1][:K]
 
             z = np.zeros(N)
             z[L] = r[L]
