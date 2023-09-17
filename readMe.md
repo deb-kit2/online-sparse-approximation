@@ -14,6 +14,7 @@
  - [x] Iterative Hard Thresholding
  
 ### To-Do :
+ - [ ] Refine readMe inside logs folder.
  - [ ] Re-run regret experiment with corrected IHT.
  - [ ] Be insightful about the variances of all random things.
  - [x] If doesn't converge, try with tau = 100 fixed.
